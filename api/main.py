@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 import random
 from datetime import date, timedelta
 import pandas as pd
-import numpy as np
+
 
 app = Flask(__name__)
 
