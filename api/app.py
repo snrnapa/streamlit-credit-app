@@ -6,6 +6,11 @@ import pandas as pd
 
 app = Flask(__name__)
 
+
+@app.route("/")
+def hello_flask():
+    return "hello world"
+
 def generate_sales_data(num_records=10):
     products = ["Apple", "Banana", "Orange", "Milk", "Bread", "Eggs", "Cheese"]
     data = []
