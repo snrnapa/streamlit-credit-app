@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import pandas as pd
@@ -6,9 +7,16 @@ st.title("Streamlit with Flask API (Sales Data)")
 
 st.write("ボタンを押して、ランダムな売上データフレームを取得します。")
 
+is_prod = os.environ.get("APP_ENV") == "prod"
+
+if is_prod:
+    base_api_url = "https://streamlit-credit-app.onrender.com/api/sales"
+else:
+    base_api_url = "http://127.0.0.1:5000/api/sales"
+
 if st.button("APIから売上データを取得"):
     try:
-        response = requests.get("http://127.0.0.1:5000/api/sales")
+        response = requests.get(f"{base_api_url}/api/sales")
         response.raise_for_status()  # エラーがあれば例外を発生させる
         sales_data = response.json()
         
