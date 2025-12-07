@@ -10,9 +10,9 @@ st.write("ボタンを押して、ランダムな売上データフレームを�
 is_prod = os.environ.get("APP_ENV") == "prod"
 
 if is_prod:
-    base_api_url = "https://streamlit-credit-app.onrender.com/api/sales"
+    base_api_url = "https://streamlit-credit-app.onrender.com"
 else:
-    base_api_url = "http://127.0.0.1:5000/api/sales"
+    base_api_url = "http://127.0.0.1:5000"
 
 if st.button("APIから売上データを取得"):
     try:
